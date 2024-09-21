@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float vehicleSpeed = 20f;
-    private float vehicleTurn = 10f;
+    private float vehicleSpeed = 30f;
+    private float vehicleTurn = 40f;
 
     public float horizontalInput;
     public float verticalInput;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         transform.Translate(Vector3.forward * Time.deltaTime * vehicleSpeed * verticalInput);
-        transform.Translate(Vector3.right * Time.deltaTime * vehicleTurn * horizontalInput);
+        transform.Rotate(Vector3.up * Time.deltaTime * vehicleTurn * horizontalInput);
         
     }
 }
