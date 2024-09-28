@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f21ec62c7f9b940af3c744760eb409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForward: 20
+  moveForward: 50
 --- !u!1 &8257245086759611604
 GameObject:
   m_ObjectHideFlags: 0

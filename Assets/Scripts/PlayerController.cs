@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    public Camera mainCamera;
+    public Camera hoodCamera;
+    private KeyCode switchKey = KeyCode.LeftShift;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,12 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * vehicleSpeed * verticalInput);
           // Rotating vehicle using horizontal inputs
         transform.Rotate(Vector3.up * Time.deltaTime * vehicleTurn * horizontalInput);
+
+        if (Input.GetKeyDown(switchKey)) {
+            mainCamera.enabled = !mainCamera.enabled;
+            hoodCamera.enabled = !hoodCamera.enabled;
+         }
+            
         
     }
 }
