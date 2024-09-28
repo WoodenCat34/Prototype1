@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public string playerID; 
     private float vehicleSpeed = 30f;
     private float vehicleTurn = 40f;
 
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public Camera mainCamera;
     public Camera hoodCamera;
-    private KeyCode switchKey = KeyCode.LeftShift;
+    public KeyCode switchKey;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +25,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
           // Getting keyboard inputs every frame
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + playerID);
+        verticalInput = Input.GetAxis("Vertical" + playerID);
           // Moving vehicle forard using vertical input
         transform.Translate(Vector3.forward * Time.deltaTime * vehicleSpeed * verticalInput);
           // Rotating vehicle using horizontal inputs
         transform.Rotate(Vector3.up * Time.deltaTime * vehicleTurn * horizontalInput);
-
+          // Switching cameras based on switch key down 
         if (Input.GetKeyDown(switchKey)) {
             mainCamera.enabled = !mainCamera.enabled;
             hoodCamera.enabled = !hoodCamera.enabled;
